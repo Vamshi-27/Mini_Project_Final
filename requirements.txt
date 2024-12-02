@@ -1,0 +1,6 @@
+pycocotools
+torch
+torchvision
+PyYAML
+streamlit
+nltk
