@@ -16,14 +16,14 @@ st.write("Upload your image and Generate Caption automatically")
 
 image = st.file_uploader("Insert Image")
 
-
 if st.button("Generate Caption"):
     if image is None:
         st.write("Insert image to generate Caption")
-        
     else:
+        # Display the uploaded image
+        st.image(image, caption="Uploaded Image", use_column_width=True)
+
+        # Generate and display the caption
         prediction = model.predict(image)
         prediction = prediction.strip(".").strip()
         st.write(prediction)
-
-# End
