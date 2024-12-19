@@ -35,7 +35,6 @@ def build_vocab(json, threshold):
         caption = str(coco.anns[id]['caption'])
         tokens = nltk.tokenize.word_tokenize(caption.lower())
         counter.update(tokens)
-
         if (i+1) % 1000 == 0:
             print("[{}/{}] Tokenized the captions.".format(i+1, len(ids)))
 
@@ -48,7 +47,6 @@ def build_vocab(json, threshold):
     vocab.add_word('<start>')
     vocab.add_word('<end>')
     vocab.add_word('<unk>')
-
     # Add the words to the vocabulary.
     for i, word in enumerate(words):
         vocab.add_word(word)
@@ -61,7 +59,6 @@ def main(args):
         pickle.dump(vocab, f)
     print("Total vocabulary size: {}".format(len(vocab)))
     print("Saved the vocabulary wrapper to '{}'".format(vocab_path))
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
